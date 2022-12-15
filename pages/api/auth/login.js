@@ -20,7 +20,7 @@ export default async function (req, res) {
 
     const cookie = serialize("auth", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "strict",
       maxAge: 2592000,
       path: "/",
