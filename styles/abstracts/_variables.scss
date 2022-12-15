@@ -1,0 +1,47 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+:root {
+  --max-width: 1180px;
+}
+
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+
+  @if $breakpoint==mobile {
+    @media only screen and (min-width: 481px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: 769px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media only screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+@mixin vh($height) {
+  height: #{$height}vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * $height);
+  height: #{$height}lvh;
+}
+
+@mixin min-vh($height) {
+  min-height: #{$height}vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  min-height: calc(var(--vh, 1vh) * $height);
+  min-height: #{$height}lvh;
+}
+
+@mixin letter-spacing($spacing) {
+  letter-spacing: calc($spacing / 1000) * 1em;
+}
